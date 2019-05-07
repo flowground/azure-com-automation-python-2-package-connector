@@ -1,0 +1,134 @@
+{
+    "title": "AutomationManagement",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/automation-python2package/2018-06-30/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Python2Package_ListByAutomationAccount": {
+            "main": "./lib/actions/Python2Package_ListByAutomationAccount.js",
+            "title": "Retrieve a list of python 2 packages.",
+            "description": "Retrieve a list of python 2 packages.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Python2Package_ListByAutomationAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Python2Package_Delete": {
+            "main": "./lib/actions/Python2Package_Delete.js",
+            "title": "Delete the python 2 package by name.",
+            "description": "Delete the python 2 package by name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Python2Package_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Python2Package_Get": {
+            "main": "./lib/actions/Python2Package_Get.js",
+            "title": "Retrieve the python 2 package identified by package name.",
+            "description": "Retrieve the python 2 package identified by package name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Python2Package_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Python2Package_Update": {
+            "main": "./lib/actions/Python2Package_Update.js",
+            "title": "Update the python 2 package identified by package name.",
+            "description": "Update the python 2 package identified by package name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Python2Package_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Python2Package_CreateOrUpdate": {
+            "main": "./lib/actions/Python2Package_CreateOrUpdate.js",
+            "title": "Create or Update the python 2 package identified by package name.",
+            "description": "Create or Update the python 2 package identified by package name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Python2Package_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
